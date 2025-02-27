@@ -7,13 +7,15 @@ const CategoryCard = ({ title, image, bgColor, fetchQuestions }) => {
   const [currentAnswer, setCurrentAnswer] = useState(null);
 
   const handlePlayClick = async () => {
-    const questions = await fetchQuestions(); // Fetch questions from API
-    if (questions.length > 0) {
-      const randomIndex = Math.floor(Math.random() * questions.length);
-      setCurrentQuestion(questions[randomIndex].question);
-      setCurrentAnswer(questions[randomIndex].answer);
+    if (fetchQuestions) {
+      const questions = await fetchQuestions();
+      if (questions.length > 0) {
+        const randomIndex = Math.floor(Math.random() * questions.length);
+        setCurrentQuestion(questions[randomIndex].question);
+        setCurrentAnswer(questions[randomIndex].answer);
+      }
     }
-    setFlipped(false); // Reset card flip state
+    setFlipped(false); // Reset flip state
   };
 
   return (
@@ -27,7 +29,7 @@ const CategoryCard = ({ title, image, bgColor, fetchQuestions }) => {
           {/* Front Side: Show Question */}
           <div className="card-front">
             <img src={image} alt={title} className="category-icon" />
-            <h2>{title}</h2>
+            <h2 className="category-title">{title}</h2>
             <p className="question-text">
               {currentQuestion || "Click PLAY to start"}
             </p>

@@ -1,11 +1,11 @@
 import React from "react";
 import "./Header.scss";
-import logo from "../assets/logo.png";
+import InstaCard from "../../assets/images/icons/Instacard - LOGO.svg";
 
 const Header = () => {
   return (
     <header className="header">
-      <img src={logo} alt="InstaCards" className="logo" />
+      <img src={InstaCard} alt="InstaCards" className="logo" />
     </header>
   );
 };
