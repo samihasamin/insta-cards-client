@@ -50,3 +50,5 @@ const CategoryCard = ({ title, image, bgColor, fetchQuestions }) => {
 };
 
 export default CategoryCard;
+
+
